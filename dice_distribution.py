@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import random
 
 ergebnis = {}
@@ -39,3 +41,5 @@ print('So, dein {0!s}-seitiger Würfel wurde jetzt {0!s} Mal geworfen. Hier die 
 #prints each dict key and value to a string
 for k in ergebnis:
     print('Die Zahl {} ist {} Mal vorgekommen.'.format(k, ergebnis[k]))
+
+raise SystemExit
