@@ -26,20 +26,28 @@ def fill_addition_count_dict(dice_add):
     for n in dice_add:
        dice_addition_result[str(n)] += 1
 
+# generates a formatted print of the actual thorws values and their added values
+def generate_count_format(count_list):
+    for x in count_list:
+        print(''.join(str(x).center(3)), end='')
+    return ' '
+
 # prints each dict key and value to a string
 def print_count_results(count):
     for k in count:
         print('Die Zahl {} ist {} Mal vorgekommen.'.format(k, count[k]))
 
+dice_addition_result = {}
 count1 = {}
 count2 = {}
 dice_result1 = []
 dice_result2 = []
 dice_addition = []
-dice_addition_result = {}
+count_grid = [dice_result1, dice_result2, dice_addition]
 
 # input how many sides dices should have and check if proper input
 sides = input('Wie viele Seiten sollen deine Würfel haben. Gib eine Zahl zwischen 1 und 20 ein: ')
+
 while not sides.isdigit() or int(sides) < 1 or int(sides) > 20:
     print('Solche Würfel haben wir nicht da. Such dir doch andere aus!')
     print()
@@ -48,6 +56,7 @@ sides = int(sides)
 
 # input how many rolls should be performed and check if proper input
 attempts = input('Wie oft sollen deine Würfel fallen? Gib eine Zahl ein: ')
+
 while not attempts.isdigit() or int(attempts) < 1:
     print('Das funktioniert leider nicht. Gib eine positive Zahl ein!')
     print()
@@ -57,12 +66,19 @@ attempts = int(attempts)
 # fills the count dict
 fill_count_dict(sides)
 
-# rolls the dice
+# rolls the dice and fills lists with generated dice throw values
 roll_the_dice(attempts, sides)
 
 # summarises users choices and results
 print()
 print('So, deine {}-seitigen Würfel wurden jetzt {} Mal geworfen. Hier die Ergebnisse:'.format(sides, attempts))
+print('Würfel 1:', end='\t')
+print(generate_count_format(dice_result1))
+print('Würfel 2:', end='\t')
+print(generate_count_format(dice_result2))
+print('Addiert:', end='\t')
+print(generate_count_format(dice_addition))
+dice_addition.sort()
 print()
 print('Das Ergebnis des ersten Würfels ist:')
 print_count_results(count1)
@@ -70,9 +86,6 @@ print()
 print('Das Ergebnis des zweiten Würfels ist:')
 print_count_results(count2)
 print()
-print('Würfel 1: ' + str(dice_result1))
-print('Würfel 2: ' + str(dice_result2))
-print('Würfel 1 + 2: ' + str(dice_addition))
-dice_addition.sort()
+print('Das Ergebnis der addierten Wurfwerte: ')
 fill_addition_count_dict(dice_addition)
-print('Die Verteilung der addierten Werte: ' + str(dice_addition_result))
+print_count_results(dice_addition_result)
