@@ -26,7 +26,7 @@ def fill_addition_count_dict(dice_add):
     for n in dice_add:
        dice_addition_result[str(n)] += 1
 
-# generates a formatted print of the actual thorws values and their added values
+# generates a formatted print of the actual throws values and their added values
 def generate_count_format(count_list):
     for x in count_list:
         print(''.join(str(x).center(3)), end='')
