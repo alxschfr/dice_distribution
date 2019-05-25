@@ -1,4 +1,4 @@
-# dice_distribution
+# dice_distribution0.1
 Dynamic Dice Roll with two dices with user input and the distribution of the resulting rolls to their respective dice values. Adds the value of the throw pairs and shows distribution fo resulting values.
 
 Project name: dice_distribution

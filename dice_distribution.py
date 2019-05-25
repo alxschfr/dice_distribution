@@ -1,4 +1,5 @@
 #!/usr/bin/env
+#dice_distribution0.1
 
 import random
 
